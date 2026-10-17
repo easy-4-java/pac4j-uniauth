@@ -43,6 +43,7 @@
         <!-- Dependency versions -->
         <easy4j-pac4j-extension-core.version>2.0.x.20260630-SNAPSHOT</easy4j-pac4j-extension-core.version>
         <lombok.version>1.18.46</lombok.version>
+        <mockito.version>5.23.0</mockito.version>
         <slf4j.version>2.0.18</slf4j.version>
         <!-- Maven Plugin versions -->
         <maven-clean-plugin.version>3.5.0</maven-clean-plugin.version>
@@ -91,6 +92,18 @@
         <dependency>
             <groupId>io.github.easy4j</groupId>
             <artifactId>pac4j-extension-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
         </dependency>
         <!-- For Lombok -->
         <dependency>
