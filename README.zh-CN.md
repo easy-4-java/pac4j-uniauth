@@ -22,7 +22,7 @@ pac4j-uniauth 是 pac4j 5.0.x 的扩展组件，用于将校园统一身份认�
 
 ## 1. 项目概述
 
-**pac4j-uniauth** 是 [pac4j](https://www.pac4j.org) 5.0.x 的扩展组件，用于将校园统一身份认证中心（Uniauth）接入 pac4j 安全流程。它构建在 `io.github.easy4j:pac4j-biz` 之上，后者提供了通用的 `Token` / `Signature` 凭证、客户端与用户资料机制。
+**pac4j-uniauth** 是 [pac4j](https://www.pac4j.org) 5.0.x 的扩展组件，用于将校园统一身份认证中心（Uniauth）接入 pac4j 安全流程。它构建在 `io.github.easy4j:pac4j-extension-core` 之上，后者提供了通用的 `Token` / `Signature` 凭证、客户端与用户资料机制。
 
 支持两种认证模式：
 
@@ -48,7 +48,7 @@ pac4j-uniauth 是 pac4j 5.0.x 的扩展组件，用于将校园统一身份认�
 | Token 凭证类型（`UniauthToken`）                    | 已实现         | 包装原始令牌字符串                                                                    |
 | Token 认证器（`UniauthTokenAuthenticator`）         | 已实现         | 需要 `profileUrl`；用令牌换取用户资料                                                  |
 | Token 资料定义（`UniauthTokenProfileDefinition`）   | 已实现         | 解析 `{"status":"fail"}` 错误与 `pinfo` 载荷为 `UniauthTokenProfile`                   |
-| Token 客户端（`UniauthTokenClient`）                | 已实现         | 参数名 / 登录地址等接线继承自 `TokenClient`（pac4j-biz）                               |
+| Token 客户端（`UniauthTokenClient`）                | 已实现         | 参数名 / 登录地址等接线继承自 `TokenClient`（pac4j-extension-core）                               |
 | Signature 凭证 / 认证器 / 客户端                     | 部分实现       | `UniauthSignatureAuthenticator` / `UniauthSignatureClient` 已存在                     |
 | Signature 资料解析                                   | 已知限制       | `UniauthSignatureProfileDefinition.extractUserProfile(...)` 解析后当前返回 `null`（见第 8 节） |
 | 单元测试                                           | 暂无           | `src/test` 仅有占位类 `TokenExample`                                                  |
@@ -60,7 +60,7 @@ pac4j-uniauth 是 pac4j 5.0.x 的扩展组件，用于将校园统一身份认�
 | JDK      | 8+                                |
 | Maven    | 3.0+（已内置 wrapper）             |
 | pac4j    | 5.0.x                             |
-| pac4j-biz| `2.0.x.x.20260630-SNAPSHOT`         |
+| pac4j-extension-core| `2.0.x.20260630-SNAPSHOT`         |
 
 easy4j 项目的版本线：
 
@@ -106,12 +106,12 @@ easy4j 项目的版本线：
 <dependency>
     <groupId>io.github.easy4j</groupId>
     <artifactId>pac4j-uniauth</artifactId>
-    <version>2.0.x.x.20260630-SNAPSHOT</version>
+    <version>2.0.x.20260630-SNAPSHOT</version>
 </dependency>
 ```
 
 ```groovy
-implementation 'io.github.easy4j:pac4j-uniauth:2.0.x.x.20260630-SNAPSHOT'
+implementation 'io.github.easy4j:pac4j-uniauth:2.0.x.20260630-SNAPSHOT'
 ```
 
 ## 6. 快速开始

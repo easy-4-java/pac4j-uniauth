@@ -24,7 +24,7 @@ pac4j-uniauth is a pac4j 5.0.x extension that integrates campus unified identity
 
 **pac4j-uniauth** is a [pac4j](https://www.pac4j.org) 5.0.x extension that integrates campus unified identity
 authentication ("Uniauth") centers into the pac4j security flow. It is built on top of
-`io.github.easy4j:pac4j-biz`, which provides the generic `Token` / `Signature` credential, client and profile
+`io.github.easy4j:pac4j-extension-core`, which provides the generic `Token` / `Signature` credential, client and profile
 machinery.
 
 Two authentication modes are supported:
@@ -54,7 +54,7 @@ Typical scenarios:
 | Token credential type (`UniauthToken`)            | Implemented      | Wraps the raw token string                                                         |
 | Token authenticator (`UniauthTokenAuthenticator`) | Implemented      | Requires `profileUrl`; exchanges token for the user profile                        |
 | Token profile definition (`UniauthTokenProfileDefinition`) | Implemented    | Parses `{"status":"fail"}` errors and the `pinfo` payload into `UniauthTokenProfile` |
-| Token client (`UniauthTokenClient`)               | Implemented      | Inherits parameter-name / login-URL wiring from `TokenClient` (pac4j-biz)          |
+| Token client (`UniauthTokenClient`)               | Implemented      | Inherits parameter-name / login-URL wiring from `TokenClient` (pac4j-extension-core)          |
 | Signature credential/authenticator/client         | Partially        | `UniauthSignatureAuthenticator`/`UniauthSignatureClient` exist                      |
 | Signature profile extraction                      | Known limitation | `UniauthSignatureProfileDefinition.extractUserProfile(...)` currently returns `null` after parsing (see Section 8) |
 | Unit tests                                        | Not present      | Only a placeholder `TokenExample` in `src/test`                                    |
@@ -66,7 +66,7 @@ Typical scenarios:
 | JDK         | 8+                      |
 | Maven       | 3.0+ (wrapper included) |
 | pac4j       | 5.0.x                   |
-| pac4j-biz   | `2.0.x.x.20260630-SNAPSHOT` |
+| pac4j-extension-core   | `2.0.x.20260630-SNAPSHOT` |
 
 Version lines of the easy4j project:
 
@@ -112,12 +112,12 @@ Artifacts are published to the aliyun repository and GitHub Releases; they are *
 <dependency>
     <groupId>io.github.easy4j</groupId>
     <artifactId>pac4j-uniauth</artifactId>
-    <version>2.0.x.x.20260630-SNAPSHOT</version>
+    <version>2.0.x.20260630-SNAPSHOT</version>
 </dependency>
 ```
 
 ```groovy
-implementation 'io.github.easy4j:pac4j-uniauth:2.0.x.x.20260630-SNAPSHOT'
+implementation 'io.github.easy4j:pac4j-uniauth:2.0.x.20260630-SNAPSHOT'
 ```
 
 ## 6. Quick Start
